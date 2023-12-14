@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PrincipalMascota</title>
+    <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+    <section class="form-principalMascota">
+        <div class="flex-center">
+            <div id="logo" class="flex-center">
+                <a href="Principal.html">
+                    <img id="CerrarSesion" src="cerrar_sesion.png" alt="Atras">
+                </a>
+            </div>
+        </div>
+        <div class="flex-center">
+            <div class="form-content">
+                <div class="boxPrincipalMascota">
+                    <div id="ImagenMascotas" class="flex-center">
+                    </div>
+                    <form id="buscarForm">
+                        <button type="button" class="btnAddMascota" id="btnAddMascota">Agregar Mascota</button>
+                        <button type="button" class="btnModMascota" id="btnModMascota">Actualizar mascota</button>
+                        <button type="button" class="btnEliMascota" id="btnEliMascota">Eliminar mascota</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <script>
+            document.getElementById('btnAddMascota').addEventListener('click', function() {
+                window.location.href = 'registrar-mascota.html';
+            });
+
+            document.getElementById('btnModMascota').addEventListener('click', function() {
+                // Muestra un cuadro de diálogo solicitando el nombre de la mascota
+                var nombreMascota = prompt('Ingrese el nombre de la mascota a modificar:');
+                
+                // Si el nombre de la mascota es nulo (cancelado) o vacío, no hace nada
+                if (!nombreMascota) {
+                    return;
+                }
+
+                // Simula la búsqueda en la base de datos
+                var mascotaEncontrada = buscarMascotaEnBaseDeDatos(nombreMascota);
+
+                // Si la mascota se encuentra, redirige a la página de actualizar mascota
+                // De lo contrario, muestra un cuadro indicando que no se encontró o está mal escrita
+                if (mascotaEncontrada) {
+                    window.location.href = 'actualizarMascota.html';
+                } else {
+                    alert('Mascota no encontrada o nombre mal escrito');
+                }
+            });
+
+            document.getElementById('btnEliMascota').addEventListener('click', function() {
+                window.location.href = 'Sensores.html';
+            });
+
+            function buscarMascotaEnBaseDeDatos(nombreMascota) {
+                // Aquí iría tu lógica para buscar en la base de datos
+                // Devuelve true si la mascota se encuentra, false si no se encuentra
+                // (simulado en este ejemplo)
+                return nombreMascota === 'NombreMascotaExistente';
+            }
+        </script>
+    </section>
+</body>
+</html>

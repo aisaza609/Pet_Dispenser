@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PetPlateDispenser</title>
+    <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+    <div class="box">
+        <div class="flex-center">
+            <div id="logo" class="flex-center">
+            </div>
+        </div>
+        <button type="submit" class="btn" id="login-Button">Iniciar Sesión</button>
+        <button type="submit" class="btn" id="registro-Button">Registrarse</button>
+    </div>
+
+    <script>
+        document.getElementById('login-Button').addEventListener('click', function() {
+            window.location.href = 'Login.html';
+        });
+        document.getElementById('registro-Button').addEventListener('click', function() {
+            window.location.href = 'Registro.html';
+        });
+    </script>
+</body>
+</html>

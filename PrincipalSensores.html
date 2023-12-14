@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PrincipalSensores</title>
+    <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+    <section class="form-principalSensores">
+        <div class="flex-center">
+            <div id="logo" class="flex-center">
+                <a href="Principal.html">
+                    <img id="CerrarSesion" src="cerrar_sesion.png" alt="Atras">
+                </a>
+            </div>
+        </div>>
+        <div class="flex-center">
+            <div class="form-content">
+                <div class="boxPrincipalSensores">
+                    <div id="ImagenSensores" class="flex-center">
+                    </div>
+                    <form action="">
+                        <button type="button" class="btnAddSensor" id="btnAddSensor">Agregar sensor</button>
+                        <button type="button" class="btnModSensor" id="btnModSensor">Modificar sensor</button>
+                        <button type="button" class="btnEliSensor" id="btnEliSensor">Eliminar sensor</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <script>
+            document.getElementById('btnAddSensor').addEventListener('click', function() {
+                window.location.href = 'registrar-mascota.html';
+            });
+            document.getElementById('btnModSensor').addEventListener('click', function() {
+                window.location.href = 'Sensores.html';
+            });
+            document.getElementById('btnEliSensor').addEventListener('click', function() {
+                window.location.href = 'Sensores.html';
+            });
+        </script>
+</body>
+</html>

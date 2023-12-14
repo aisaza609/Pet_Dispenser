@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RegistroMascota</title>
+    <link rel="stylesheet" href="CSS/estilos.css">
+</head>
+<body>
+    <section class="form-register">
+        <div class="flex-center">
+            <div id="logo" class="flex-center">
+            </div>
+        </div>
+        <div class="flex-center">
+            <div class="boxRegister">
+                <h2>Agregar mascota</h2>
+                <form action="registro_mascota.php" method="post">
+                    <div class="register-Box">
+                        <input id="nmascota" name="nmascota" type="text" placeholder="Nombre mascota" class="input-control">
+                    </div>
+                    <div class="register-Box">
+                        <input id="raza" name="raza" type="text" placeholder="Raza" class="input-control">
+                    </div>
+                    <div class="register-Box">
+                        <input id="edad" name="edad" type="text" placeholder="Edad" class="input-control">
+                    </div>
+                    <div class="register-Box">
+                        <input id="peso" name="peso" type="text" placeholder="Peso (Kg)" class="input-control">
+                    </div>
+                    <button type="submit" class="btnRegister">Guardar</button>
+                    <button type="button" class="return" id="Atras">Atras</button>
+                </form>
+            </div>
+        </div>
+    </section>
+    <script>
+        document.getElementById('Guardar').addEventListener('click', function() {
+            var nmascota = document.getElementById('nmascota').value;
+            var raza = document.getElementById('raza').value;
+
+            // Verificación de campos vacíos
+            if (nmascota.trim() === "" || raza.trim() === "") {
+                alert("El campo de nombre o raza está vacío");
+                return;
+            }
+            // Si pasa todas las validaciones, puedes continuar con la inserción en la base de datos aquí
+            // Realiza una solicitud AJAX al servidor para enviar los datos
+
+            var formData = new FormData(document.getElementById('registration-form'));
+
+            // Realiza una solicitud AJAX
+            var xhr = new XMLHttpRequest();
+            xhr.open('POST', 'registro_mascota.php', true);
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState === 4 && xhr.status === 200) {
+                    // Si la inserción en la base de datos se realizó con éxito, muestra la confirmación con SweetAlert
+                    Swal.fire({
+                        title: 'Registro Exitoso!',
+                        text: 'Mascota agregada con exito',
+                        icon: 'success',
+                        showCloseButton: true,
+                        showCancelButton: false,  // Oculta el botón de cancelar
+                        confirmButtonText: 'Continuar',
+                        allowOutsideClick: false
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            window.location.href = 'PrincipalMascota.html'; // Redirigir al usuario a la página de inicio
+                        }
+                    });
+                }
+            };
+            xhr.send(formData);
+        });
+
+        document.getElementById('Atras').addEventListener('click', function() {
+            window.location.href = 'index.html';
+        });
+    </script>
+</body>
+</html>

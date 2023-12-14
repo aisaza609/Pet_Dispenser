@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="CSS/estilos.css">
+</head>
+<body>
+    <section class="form-main">
+        <div class="flex-center">
+            <div id="logo" class="flex-center">
+            </div>
+        </div>
+        <div class="flex-center">
+            <div class="form-content">
+                <div class="boxLogin">
+                    <h3>Bienvenido</h3>
+                    <form action="authentication.php" onsubmit="return validation()" method="POST">
+                        <div class="input-box">
+                            <input id="id" name="id" type="text" placeholder="Número de indentificación" class="input-control">
+                        </div>
+                        <div class="input-box">
+                            <input id="pass" name="pass" type="password" placeholder="Contraseña" class="input-control">
+                        </div>
+                        <button type="submit" class="btnLogin" >Ingresar</button>
+                        <button type="button" class="return" id="Atras">Atras</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script>
+        function validation()  
+            {  
+                var id=document.f1.user.value;  
+                var ps=document.f1.pass.value;  
+                if(id.length=="" || ps.length=="") {  
+                    alert("User Name and Password fields are empty");  
+                    return false;  
+                }  
+                else  
+                {  
+                    window.location.href = 'Principal.html';
+                    alert("validación completa");  
+                    return false;
+                }                             
+            }
+        document.getElementById('Atras').addEventListener('click', function() {
+            window.location.href = 'index.html';
+        });
+    </script>
+</body>
+</html>

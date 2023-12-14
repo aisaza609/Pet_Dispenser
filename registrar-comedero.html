@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RegistroComedero</title>
+    <link rel="stylesheet" href="CSS/estilos.css">
+</head>
+<body>
+    <section class="form-register">
+        <div class="flex-center">
+            <div id="logo" class="flex-center">
+            </div>
+        </div>
+        <div class="flex-center">
+            <div class="boxRegister">
+                <h2>Agregar comedero</h2>
+                <form action="">
+                    <div class="register-Box">
+                        <input id="name" name="name" type="text" placeholder="Nombre de mascota" class="input-control">
+                    </div>
+                    <div class="register-Box">
+                        <input id="sensores" name="sensores" type="text" placeholder="Sensores" class="input-control">
+                    </div>
+                    <div class="register-Box">
+                        <input id="HoraComida" name="HoraComida" type="text" placeholder="Horarios de comida" class="input-control">
+                    </div>
+                    <div class="register-Box">
+                        <input id="TiempoComida" name="TiempoComida" type="text" placeholder="Tiempos de comida" class="input-control">
+                    </div>
+                    <div class="register-Box">
+                        <input id="ComidaDeHorario" name="ComidaDeHorario" type="text" placeholder="Comida asignada al horario" class="input-control">
+                    </div>
+                    <div class="register-Box">
+                        <input id="idAlimento" name="idAlimento" type="text" placeholder="Marca del alimento" class="input-control">
+                    </div>
+                    <div class="register-Box">
+                        <input id="cod" name="cod" type="text" placeholder="Código" class="input-control">
+                    </div>
+                    <button type="submit" class="btnRegister">Registrar</button>
+                    <button type="button" class="return" id="Atras">Atras</button>
+                </form>
+            </div>
+        </div>
+    </section>
+    <script>
+        
+
+        document.getElementById('Atras').addEventListener('click', function() {
+            window.location.href = 'PrincipalComedero.html';
+        });
+    </script>
+</body>
+</html>

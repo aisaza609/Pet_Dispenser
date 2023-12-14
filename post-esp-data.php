@@ -1,0 +1,81 @@
+<?php
+//CODIGO CON EL PET
+$servername = "localhost";
+$dbname = "petplate_dispenser";
+$username = "Andrea";
+$password = "Admin12345";
+$api_key_value = "tPmAT5Ab3j7F9";
+
+$api_key = $sensor = $sensor1 = $location = $value1 = $value2 = $Distancia="";
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $api_key = test_input($_POST["api_key"]);
+    if($api_key == $api_key_value) {
+        $sensor = test_input($_POST["sensor"]);
+        $value1 = test_input($_POST["value1"]);
+        $sensor1 = test_input($_POST["sensor1"]);
+        $value2 = test_input($_POST["value2"]);
+        $location = test_input($_POST["location"]);
+        $Distancia = test_input($_POST["Distancia"]);
+        
+        // Create connection
+        
+        $conn = new mysqli($servername, $username, $password, $dbname);
+        // Check connection
+        if ($conn->connect_error) {
+            die("Connection failed: " . $conn->connect_error);
+        } 
+        
+        $sql = "INSERT INTO sensorespet (api_key, sensor, value1, location, sensor1, value2, Distancia) VALUES ('" . $api_key . "', '" . $sensor . "', '" . $value1 . "', '" . $location . "', '" . $sensor1 . "', '" . $value2 . "','" . $Distancia. "')";
+        
+        if ($conn->query($sql) == TRUE) {
+            echo "New record created successfully";
+        } 
+        else {
+            echo "Error: " . $sql . "<br>" . $conn->error;
+        }
+
+        
+       
+
+        $conn->close();
+    }
+    else {
+        echo "Wrong API Key provided.";
+    }
+
+}
+else if($_SERVER["REQUEST_METHOD"] == "GET") {
+    $api_key = test_input($_GET["api_key"]);
+    if($api_key == $api_key_value) {
+        $varX =test_input($_GET["Distancia"]);
+        $conn = new mysqli($servername, $username, $password, $dbname);
+        // Check connection
+        if ($conn->connect_error) {
+            die("Connection failed: " . $conn->connect_error);
+        } 
+        $sql = "SELECT *FROM sensorpet ORDER BY IDx DESC LIMIT 1";
+        if($result=$conn->query($sql)){
+            $row=mysqli_fetch_row($result);
+            echo $row[6];
+        } else{
+            echo false;
+        }
+        $conn->close();
+    }
+    else{
+         echo "Wrong API Key provied";
+    }
+
+}
+else {
+    echo "No data posted with HTTP POST/GET.";
+}
+
+function test_input($data) {
+    $data = trim($data);
+    $data = stripslashes($data);
+    $data = htmlspecialchars($data);
+    return $data;
+}
+?>

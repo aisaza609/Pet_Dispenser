@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro</title>
+    <link rel="stylesheet" href="CSS/estilos.css">
+</head>
+<body>
+    <section class="form-register">
+        <div class="flex-center">
+            <div id="logo" class="flex-center">
+            </div>
+        </div>
+        <div class="flex-center">
+            <div class="boxRegister">
+                <h2>Registrarse</h2>
+                <form id="registration-form">
+                    <input type="hidden" name="action" value="registrar">
+                    <div class="register-Box">
+                        <input id="user" name="user" type="text" placeholder="Nombre de usuario" class="input-control">
+                    </div>
+                    <div class="register-Box">
+                        <input id="id" name="id" type="text" placeholder="Número de identificación" class="input-control">
+                    </div>
+                    <div class="register-Box">
+                        <input id="cel" name="cel" type="text" placeholder="Teléfono" class="input-control">
+                    </div>
+                    <div class="register-Box">
+                        <input id="pass" name="pass" type="password" placeholder="Contraseña" class="input-control">
+                    </div>
+                    <button type="button" class="btnRegister" id="Guardar">Guardar</button>
+                    <button type="button" class="return" id="Atras">Atras</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.0/dist/sweetalert2.all.min.js"></script>
+    <script>
+        document.getElementById('Guardar').addEventListener('click', function() {
+            var formData = new FormData(document.getElementById('registration-form')); 
+            var username = document.getElementById('user').value;
+            var password = document.getElementById('pass').value;
+
+            // Verificación de campos vacíos
+            if (username.trim() === "" || password.trim() === "") {
+                // Muestra el mensaje de error para campos vacíos
+                Swal.fire({
+                    title: 'Campos Vacíos!',
+                    text: 'Por favor, completa todos los campos para continuar.',
+                    icon: 'error',
+                    showCloseButton: true,
+                    showCancelButton: false,
+                    confirmButtonText: 'Entendido',
+                    allowOutsideClick: false
+                });
+                return;
+            }
+
+
+            // Expresión regular para verificar la contraseña
+            var passwordPattern = /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d).{5,}$/;
+            
+
+            if (!passwordPattern.test(password)) {
+                // Muestra el mensaje de error para contraseñas inválidas
+                Swal.fire({
+                    title: 'Contraseña incorrecta!',
+                    text: 'La contraseña debe tener al menos una letra mayúscula, una letra minúscula, un número y al menos 5 caracteres.',
+                    icon: 'error',
+                    showCloseButton: true,
+                    showCancelButton: false,
+                    confirmButtonText: 'Entendido',
+                    allowOutsideClick: false
+                });
+                return;
+            }
+
+            var xhr = new XMLHttpRequest();
+            xhr.open('POST', 'gestion_personas.php', true);
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState === 4 && xhr.status === 200) {
+                    var response = JSON.parse(xhr.responseText);
+                    if (response.success) {
+                        Swal.fire({
+                            title: 'Registro Exitoso!',
+                            text: 'Ahora puede iniciar sesión',
+                            icon: 'success',
+                            confirmButtonText: 'Continuar',
+                            allowOutsideClick: false
+                        }).then((result) => {
+                            if (result.isConfirmed) {
+                                window.location.href = 'index.html';
+                            }
+                        });
+                    } else {
+                        Swal.fire({
+                            title: 'Error en el Registro',
+                            text: response.message,
+                            icon: 'error',
+                            confirmButtonText: 'Ok',
+                            allowOutsideClick: false
+                        });
+                    }
+                } else if (xhr.readyState === 4) {
+                    Swal.fire({
+                        title: 'Error en la Solicitud',
+                        text: 'Hubo un problema con la solicitud. Por favor, intente de nuevo.',
+                        icon: 'error',
+                        confirmButtonText: 'Ok',
+                        allowOutsideClick: false
+                    });
+                }
+            };
+            xhr.send(formData);
+        });
+
+        document.getElementById('Atras').addEventListener('click', function() {
+            window.location.href = 'index.html';
+        });
+    </script>
+</body>
+</html>

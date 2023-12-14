@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Principal</title>
+    <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+    <section class="form-principal">
+        <div class="flex-center">
+            <div id="logo" class="flex-center">
+            </div>
+            <a href="index.html">
+                <img id="CerrarSesion" src="CSS/cerrar_sesion.png" alt="Cerrar sesion" width="60x60">
+            </a>
+        </div>>
+        <div class="flex-center">
+            <div class="form-content">
+                <div class="boxPrincipal">
+                    <div id="logo_user" class="flex-center">
+                        <h3>usuario</h3>
+                    </div>
+                    <form action="">
+                        <button type="button" class="btnMascota" id="btnMascota">Mascotas</button>
+                        <button type="button" class="btnComedero" id="btnComedero">Comederos</button>
+                        <button type="button" class="btnSensores" id="btnSensores">Sensores</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <script>
+            document.getElementById('btnMascota').addEventListener('click', function() {
+                window.location.href = 'PrincipalMascota.html';
+            });
+            document.getElementById('btnComedero').addEventListener('click', function() {
+                window.location.href = 'PrincipalComedero.html';
+            });
+            document.getElementById('btnSensores').addEventListener('click', function() {
+                window.location.href = 'PrincipalSensores.html';
+            });
+        </script>
+</body>
+</html>

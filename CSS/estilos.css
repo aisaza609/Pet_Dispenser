@@ -1,0 +1,399 @@
+@import url('https://fonts.googleapis.com/css2?family=Mooli&family=Poppins:wght@300;400;500;700&display=swap');
+
+:root{
+    --green: hsl(162, 45%, 56%);
+    --plomo: hsl(162, 2%, 56%);
+    --blue: hsl(199, 85%, 57%);
+    --violet: hsl(272, 92%, 32%);
+    --orange: hsl(22, 97%, 55%);
+    --text-black: hsl(0, 0%, 0%);
+    --text-light-gray: hsl(0, 0%, 0%);
+    --body-bg-color: hsl(34, 56%, 83%);
+    --glass-bg-color: hsla(0, 0%, 100%, 0.05);
+    --border-color: hsla(0, 0%, 100%, 0.25);
+    --blur: blur(10px);
+    --button-hover-color: hsla(0, 0%, 0%, 0.3);
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: var(--body-bg-color);
+    color: var(--text-light-gray);
+    font-family: 'Poppins', sans-serif;
+    font-weight: 300;
+    font-size: 30px; /*Tamaño de la letra*/
+    line-height: 1.5;
+    overflow-x: hidden;
+}
+
+body::before,
+body::after{
+    content: '';
+    position: fixed;
+    height: 950px;
+    width: 500px;
+    border-radius: 50%;
+    z-index: -1;
+    filter: blur(150px);
+    opacity: 2;
+}
+/*difuminados*/
+body::before{
+    background-color: var(--orange);
+    right: 0;
+    bottom: 0;
+    transform: translate(50%);
+}
+body::after{
+    background-color: var(--blue);
+    left: 0;
+    bottom: 0;
+    transform: translate(-50%);
+}
+/*Index*/
+.flex-center{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#logo{
+    width: 600px;
+    height: 500px;
+    background-image: url(logo.png);
+    background-repeat: no-repeat;
+    background-position-y: 0px;
+}
+
+.box {
+    text-align: center;
+}
+/*Botones*/
+.box .btn{ /*Botones index*/
+    height: 45px;
+    width: 30%;
+    font-size: 20px;
+    font-weight: 300;
+    margin:10px auto;
+    display: block;
+    cursor: pointer;
+    border-radius: 25px;
+    user-select: none;
+    background: linear-gradient(to right, var(--orange), var(--blue));
+}
+/*Botones login*/
+.boxLogin .btnLogin{
+    height: 30px;
+    width: 70%;
+    font-size: 20px;
+    font-weight: 300;
+    margin: 20px auto;
+    display: block;
+    cursor: pointer;
+    border-radius: 25px;
+    background: linear-gradient(to right, var(--orange), var(--blue));
+}
+.boxLogin .return{
+    height: 30px;
+    width: 70%;
+    font-size: 20px;
+    font-weight: 300;
+    margin: 20px auto;
+    display: block;
+    cursor: pointer;
+    border-radius: 25px;
+    background: linear-gradient(to right, var(--orange), var(--blue));
+}
+/*Botones registro*/
+.boxRegister .btnRegister{
+    height: 30px;
+    width: 70%;
+    font-size: 20px;
+    font-weight: 300;
+    margin: 20px auto;
+    display: block;
+    cursor: pointer;
+    border-radius: 25px;
+    background: linear-gradient(to right, var(--orange), var(--blue));
+}
+.boxRegister .return{
+    height: 30px;
+    width: 70%;
+    font-size: 20px;
+    font-weight: 300;
+    margin: 20px auto;
+    display: block;
+    cursor: pointer;
+    border-radius: 25px;
+    background: linear-gradient(to right, var(--orange), var(--blue));
+}
+/*Botones pantalla principal*/
+.boxPrincipal {
+    margin-top: -280px;  /* Puedes ajustar este valor según sea necesario */
+}
+.boxPrincipal .btnMascota,
+.boxPrincipal .btnComedero,
+.boxPrincipal .btnSensores {
+    height: 30px;
+    width: 45%;  /* Modificado el ancho para dejar espacio suficiente para los tres botones en una fila */
+    font-size: 20px;
+    font-weight: 300;
+    margin: 20px 2.5%;  /* Agregado margen entre los botones */
+    display: inline-block;  /* Cambiado a inline-block para que estén en la misma línea */
+    cursor: pointer;
+    border-radius: 25px;
+    background: linear-gradient(to right, var(--orange), var(--blue));
+    position: relative;
+}
+
+.boxPrincipal .btnComedero,
+.boxPrincipal .btnSensores {
+    float: right;  /* Alinea los dos primeros botones uno al lado del otro */
+    clear: both;  /* Asegura que el tercer botón esté debajo de los dos primeros */
+}
+
+.boxPrincipal .btnSensores {
+    width: 100%;  /* Cambiado el ancho para que ocupe el 100% y esté centrado */
+    float: none;  /* Eliminado el float para centrar el tercer botón */
+}
+
+/*Botones principal mascota*/
+.boxPrincipalMascota {
+    margin-top: -280px;  /* Puedes ajustar este valor según sea necesario */
+}
+
+.boxPrincipalMascota .btnAddMascota,
+.boxPrincipalMascota .btnModMascota,
+.boxPrincipalMascota .btnEliMascota {
+    height: 55px;
+    width: 30%;  /* Modificado el ancho para dejar espacio suficiente para los tres botones en una fila */
+    font-size: 20px;
+    font-weight: 300;
+    margin: 20px 0;  /* Eliminado el margen lateral para que los botones estén seguidos */
+    display: inline-block;  /* Cambiado a inline-block para que estén en la misma línea */
+    cursor: pointer;
+    border-radius: 25px;
+    background: linear-gradient(to right, var(--orange), var(--blue));
+    position: relative;
+    box-sizing: border-box;  /* Incluye el relleno y el borde en el tamaño total del botón */
+}
+
+.boxPrincipalMascota .btnModMascota,
+.boxPrincipalMascota .btnEliMascota {
+    width: 30%;  /* Ajustado el ancho para dejar espacio suficiente para los tres botones en una fila */
+}
+
+.boxPrincipalMascota .btnEliMascota {
+    margin-left: 0;  /* Eliminado el margen izquierdo para el último botón */
+}
+/*Botones principal comedero*/
+.boxPrincipalComedero {
+    margin-top: -280px;  /* Puedes ajustar este valor según sea necesario */
+}
+
+.boxPrincipalComedero .btnAddComedero,
+.boxPrincipalComedero .btnModComedero,
+.boxPrincipalComedero .btnEliComedero {
+    height: 55px;
+    width: 30%;  /* Modificado el ancho para dejar espacio suficiente para los tres botones en una fila */
+    font-size: 20px;
+    font-weight: 300;
+    margin: 20px 0;  /* Eliminado el margen lateral para que los botones estén seguidos */
+    display: inline-block;  /* Cambiado a inline-block para que estén en la misma línea */
+    cursor: pointer;
+    border-radius: 25px;
+    background: linear-gradient(to right, var(--orange), var(--blue));
+    position: relative;
+    box-sizing: border-box;  /* Incluye el relleno y el borde en el tamaño total del botón */
+}
+
+.boxPrincipalComedero .btnModComedero,
+.boxPrincipalComedero .btnEliComedero {
+    width: 30%;  /* Ajustado el ancho para dejar espacio suficiente para los tres botones en una fila */
+}
+
+.boxPrincipalComedero .btnEliComedero {
+    margin-left: 0;  /* Eliminado el margen izquierdo para el último botón */
+}
+
+/*Botones principal sensores*/
+.boxPrincipalSensores {
+    margin-top: -280px;  /* Puedes ajustar este valor según sea necesario */
+}
+
+.boxPrincipalSensores .btnAddSensor,
+.boxPrincipalSensores .btnModSensor,
+.boxPrincipalSensores .btnEliSensor {
+    height: 55px;
+    width: 30%;  /* Modificado el ancho para dejar espacio suficiente para los tres botones en una fila */
+    font-size: 20px;
+    font-weight: 300;
+    margin: 20px 0;  /* Eliminado el margen lateral para que los botones estén seguidos */
+    display: inline-block;  /* Cambiado a inline-block para que estén en la misma línea */
+    cursor: pointer;
+    border-radius: 25px;
+    background: linear-gradient(to right, var(--orange), var(--blue));
+    position: relative;
+    box-sizing: border-box;  /* Incluye el relleno y el borde en el tamaño total del botón */
+}
+
+.boxPrincipalSensores .btnModSensor,
+.boxPrincipalSensores .btnEliSensor {
+    width: 30%;  /* Ajustado el ancho para dejar espacio suficiente para los tres botones en una fila */
+}
+
+.boxPrincipalSensores .btnEliSensor {
+    margin-left: 0;  /* Eliminado el margen izquierdo para el último botón */
+}
+
+
+/*Login*/
+.form-content {
+    margin-top: -110px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.boxLogin .input-control {
+    margin: 20px auto;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    height: 45px;
+    width: 100%;
+    background-color: var(--body-bg-color);
+    border-radius: 25px;
+}
+
+.boxLogin .input-control:focus{
+    outline: none;
+}
+
+/*Register*/
+.form-register #logo{
+    width: 600px;
+    height: 500px;
+    margin: 100px auto;
+    background-image: url(logo.png);
+    background-repeat: no-repeat;
+    background-position-y: 0px;
+    opacity: 0.3;
+}
+
+.boxRegister {
+    margin-top: -800px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    position: relative;
+}
+
+.boxRegister .input-control {
+    margin: 20px auto;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    height: 45px;
+    width: 100%;
+    background-color: var(--body-bg-color);
+    border-radius: 25px;
+}
+
+/*Pagina principal*/
+#CerrarSesion{
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+}
+
+
+.form-principal #logo{
+    width: 600px;
+    height: 500px;
+    margin: 100px auto;
+    background-image: url(logo.png);
+    background-repeat: no-repeat;
+    background-position-y: 0px;
+    opacity: 0.3;
+}
+
+.form-principal #logo_user{
+    width: 300px;
+    height: 500px;
+    margin: -400px auto;
+    background-image: url(logo_usuario.png);
+    background-repeat: no-repeat;
+    background-position: center top;
+    position: absolute;
+}
+
+/*Pagina principal mascotas*/
+.form-principalMascota #logo{
+    width: 600px;
+    height: 500px;
+    margin: 100px auto;
+    background-image: url(logo.png);
+    background-repeat: no-repeat;
+    background-position-y: 0px;
+    opacity: 0.3;
+}
+
+.form-principalMascota #ImagenMascotas{
+    width: 510px;
+    height: 500px;
+    margin: -400px auto;
+    background-image: url(PrincipalMascota1.png);
+    background-repeat: no-repeat;
+    background-position: center top;
+    position: absolute;
+}
+/*Pagina principal comedero*/
+.form-principalComedero #logo{
+    width: 600px;
+    height: 500px;
+    margin: 100px auto;
+    background-image: url(logo.png);
+    background-repeat: no-repeat;
+    background-position-y: 0px;
+    opacity: 0.3;
+}
+/*
+.form-principalComedero #ImagenComedero{
+    width: 710px;
+    height: 400px;
+    margin: -580px auto;
+    background-image: url(comedero.png);
+    background-repeat: no-repeat;
+    background-position: center top;
+    position: absolute;
+}*/
+
+/*Pagina principal Sensores*/
+.form-principalSensores #logo{
+    width: 600px;
+    height: 500px;
+    margin: 100px auto;
+    background-image: url(logo.png);
+    background-repeat: no-repeat;
+    background-position-y: 0px;
+    opacity: 0.3;
+}
+
+.form-principalSensores #ImagenSensores{
+    width: 450px;
+    height: 300px;
+    margin: -400px auto;
+    background-image: url(monitoreo.png);
+    background-repeat: no-repeat;
+    background-position: center top;
+    position: absolute;
+}

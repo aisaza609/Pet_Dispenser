@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ActualizarMascota</title>
+    <link rel="stylesheet" href="CSS/estilos.css">
+</head>
+<body>
+    <section class="form-register">
+        <div class="flex-center">
+            <div id="logo" class="flex-center">
+            </div>
+        </div>
+        <div class="flex-center">
+            <div class="boxRegister">
+                <h2>Actualizar mascota</h2>
+                <form action="">
+                    <div class="register-Box">
+                        <input id="name" name="name" type="text" placeholder="Nombre mascota" class="input-control">
+                    </div>
+                    <div class="register-Box">
+                        <input id="raza" name="raza" type="text" placeholder="Raza" class="input-control">
+                    </div>
+                    <div class="register-Box">
+                        <input id="edad" name="edad" type="text" placeholder="Edad" class="input-control">
+                    </div>
+                    <div class="register-Box">
+                        <input id="peso" name="peso" type="text" placeholder="Peso (Kg)" class="input-control">
+                    </div>
+                    <button type="submit" class="btnRegister">Guardar</button>
+                    <button type="button" class="return" id="Atras">Atras</button>
+                </form>
+            </div>
+        </div>
+    </section>
+    <script>
+        
+
+        document.getElementById('Atras').addEventListener('click', function() {
+            window.location.href = 'PrincipalMascota.html';
+        });
+    </script>
+</body>
+</html>
